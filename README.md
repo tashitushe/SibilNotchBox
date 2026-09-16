@@ -50,6 +50,15 @@ Build and run the `boringNotch` scheme from Xcode, or from the command line:
 xcodebuild -project boringNotch.xcodeproj -scheme boringNotch -configuration Release build
 ```
 
+If you build a **Release** archive without a paid Developer ID (i.e. ad-hoc
+signed), macOS's hardened runtime can refuse to load the bundled
+`MediaRemoteAdapter.framework` because its signature doesn't match the app's.
+If the built app won't launch, re-sign the whole bundle once after building:
+
+```bash
+codesign --force --deep --sign - "/path/to/SibilNotch Box.app"
+```
+
 ## Usage
 
 1. Launch **SibilNotch Box**. On first run it walks you through the
