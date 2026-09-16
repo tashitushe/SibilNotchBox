@@ -44,10 +44,10 @@ cd SibilNotchBox
 open boringNotch.xcodeproj
 ```
 
-Build and run the `boringNotch` scheme from Xcode, or from the command line:
+Build and run the `SibilNotch Box` scheme from Xcode, or from the command line:
 
 ```bash
-xcodebuild -project boringNotch.xcodeproj -scheme boringNotch -configuration Release build
+xcodebuild -project boringNotch.xcodeproj -scheme "SibilNotch Box" -configuration Release build
 ```
 
 If you build a **Release** archive without a paid Developer ID (i.e. ad-hoc
