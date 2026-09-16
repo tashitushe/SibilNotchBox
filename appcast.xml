@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>SibilNotch Box</title>
+        <item>
+            <title>1.0.1</title>
+            <pubDate>Wed, 16 Sep 2026 17:53:13 +0200</pubDate>
+            <link>https://github.com/tashitushe/SibilNotchBox</link>
+            <sparkle:version>271</sparkle:version>
+            <sparkle:shortVersionString>1.0.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <enclosure url="https://github.com/tashitushe/SibilNotchBox/releases/download/v1.0.1/SibilNotchBox-1.0.1.zip" length="7457624" type="application/octet-stream" sparkle:edSignature="hm1OLeqfqRop2PVbMDzj6PPuhExdXQyGUUQTgrE2LIDB7XN0OSQogDq04kRXaN+ogAmUWUUb4T5DPZx0H2QOBQ=="/>
+        </item>
+    </channel>
+</rss>
