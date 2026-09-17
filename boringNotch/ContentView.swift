@@ -370,7 +370,7 @@ struct ContentView: View {
 
     @ViewBuilder
     func MusicLiveActivity() -> some View {
-        HStack {
+        HStack(spacing: 0) {
             Image(nsImage: musicManager.albumArt)
                 .resizable()
                 .clipped()
@@ -383,6 +383,7 @@ struct ContentView: View {
                     width: max(0, vm.effectiveClosedNotchHeight - 12),
                     height: max(0, vm.effectiveClosedNotchHeight - 12)
                 )
+                .frame(height: vm.effectiveClosedNotchHeight)
                 .background(.black)
 
             Rectangle()
@@ -463,6 +464,7 @@ struct ContentView: View {
                 ),
                 alignment: .center
             )
+            .frame(height: vm.effectiveClosedNotchHeight)
             .background(.black)
         }
         .frame(
