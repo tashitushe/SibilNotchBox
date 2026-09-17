@@ -56,6 +56,12 @@ struct ContentView: View {
         )
     }
 
+    private var isShowingMusicLiveActivity: Bool {
+        (!coordinator.expandingView.show || coordinator.expandingView.type == .music)
+            && vm.notchState == .closed && (musicManager.isPlaying || !musicManager.isPlayerIdle)
+            && coordinator.musicLiveActivityEnabled && !vm.hideOnClosed
+    }
+
     private var computedChinWidth: CGFloat {
         var chinWidth: CGFloat = vm.closedNotchSize.width
 
@@ -100,12 +106,16 @@ struct ContentView: View {
                     .padding([.horizontal, .bottom], vm.notchState == .open ? 12 : 0)
                     .background(
                         ZStack {
-                            VisualEffectView(material: .hudWindow, blendingMode: .behindWindow)
-                            LinearGradient(
-                                colors: [.black, .black.opacity(0)],
-                                startPoint: .top,
-                                endPoint: .bottom
-                            )
+                            if isShowingMusicLiveActivity {
+                                Color.black
+                            } else {
+                                VisualEffectView(material: .hudWindow, blendingMode: .behindWindow)
+                                LinearGradient(
+                                    colors: [.black, .black.opacity(0)],
+                                    startPoint: .top,
+                                    endPoint: .bottom
+                                )
+                            }
                         }
                     )
                     .clipShape(currentNotchShape)
