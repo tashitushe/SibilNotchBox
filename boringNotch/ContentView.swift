@@ -62,6 +62,15 @@ struct ContentView: View {
             && coordinator.musicLiveActivityEnabled && !vm.hideOnClosed
     }
 
+    private var isShowingBatteryNotification: Bool {
+        coordinator.expandingView.type == .battery && coordinator.expandingView.show
+            && vm.notchState == .closed && Defaults[.showPowerStatusNotifications]
+    }
+
+    private var isShowingClosedNotchLiveContent: Bool {
+        isShowingMusicLiveActivity || isShowingBatteryNotification
+    }
+
     private var computedChinWidth: CGFloat {
         var chinWidth: CGFloat = vm.closedNotchSize.width
 
@@ -106,7 +115,7 @@ struct ContentView: View {
                     .padding([.horizontal, .bottom], vm.notchState == .open ? 12 : 0)
                     .background(
                         ZStack {
-                            if isShowingMusicLiveActivity {
+                            if isShowingClosedNotchLiveContent {
                                 Color.black
                             } else {
                                 VisualEffectView(material: .hudWindow, blendingMode: .behindWindow)
